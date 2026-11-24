@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Correction détaillée et illustrée de la série n° 3 : oxydation du fer et de l'aluminium.">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Corrigé Oxydation des métaux</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&display=swap">
+<style>
+/* Layout : une seule colonne de lecture ; chaque question = énoncé, réponse à recopier (fond vert), puis explication et dessin. */
+:root {
+  --bg: #F2F5F8;
+  --surface: #FFFFFF;
+  --ink: #17232E;
+  --muted: #53626E;
+  --line: #D3DCE3;
+  --accent: #A8481A;          /* couleur rouille : titres et numéros */
+  --answer-bg: #E2F1E8;
+  --answer-ink: #114830;
+  --air: #E1EDF6;
+  --alu: #8DA2B3;             /* métal aluminium */
+  --alumine: #55636E;         /* couche grisâtre */
+  --fer: #4A5560;             /* métal fer */
+  --rust: #B4521E;            /* rouille */
+  --o2: #D2343F;              /* atome d'oxygène (rouge, convention des chimistes) */
+  --water: #2B7FC4;
+  --azote: #C5CFD7;
+  --on-atom: #FFFFFF;
+  --on-metal: #10171D;
+  --on-fer: #FFFFFF;
+  --on-rust: #FFFFFF;
+  --font-display: "Bricolage Grotesque", "Trebuchet MS", "Segoe UI", sans-serif;
+  --font-body: "Lexend", "Verdana", "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #10171D; --surface: #18222B; --ink: #E8EEF2; --muted: #A2B2BE; --line: #2D3B46;
+    --accent: #E58A52; --answer-bg: #15352A; --answer-ink: #C2EBD5; --air: #1B2A36;
+    --alu: #8FA6B8; --alumine: #D3DBE1; --fer: #55626E; --rust: #D9773F; --o2: #F0626C;
+    --water: #5AA9E6; --azote: #3A4955; --on-atom: #0E151B; --on-metal: #10171D;
+    --on-fer: #FFFFFF; --on-rust: #1A0F08; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #10171D; --surface: #18222B; --ink: #E8EEF2; --muted: #A2B2BE; --line: #2D3B46;
+  --accent: #E58A52; --answer-bg: #15352A; --answer-ink: #C2EBD5; --air: #1B2A36;
+  --alu: #8FA6B8; --alumine: #D3DBE1; --fer: #55626E; --rust: #D9773F; --o2: #F0626C;
+  --water: #5AA9E6; --azote: #3A4955; --on-atom: #0E151B; --on-metal: #10171D;
+  --on-fer: #FFFFFF; --on-rust: #1A0F08; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 1.02rem; line-height: 1.7; font-weight: 400;
+}
+.page {
+  max-width: 46rem; margin-inline: auto; padding-block: 2rem 4rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex; flex-direction: column; gap: 2.5rem;
+}
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.2; }
+h1 { font-size: clamp(2rem, 6vw, 2.9rem); font-weight: 800; letter-spacing: -0.01em; }
+h2 { font-size: 1.7rem; font-weight: 800; color: var(--accent); }
+h3 { font-size: 1.15rem; font-weight: 600; }
+p { margin: 0; }
+sub { font-size: 0.72em; line-height: 0; }
+a { color: var(--accent); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+strong { font-weight: 700; }
+
+.kicker { font-size: 0.8rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+header { display: flex; flex-direction: column; gap: 0.9rem; }
+header .lead { color: var(--muted); max-width: 38rem; }
+nav { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+nav a {
+  text-decoration: none; font-weight: 700; font-size: 0.95rem; color: var(--ink);
+  border: 1.5px solid var(--line); background: var(--surface); padding: 0.35rem 0.8rem; border-radius: 999px;
+}
+nav a:hover { border-color: var(--accent); color: var(--accent); }
+
+section { display: flex; flex-direction: column; gap: 1.4rem; }
+.stack { display: flex; flex-direction: column; gap: 0.8rem; }
+
+/* vocabulaire */
+dl.words { margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0.9rem 1.5rem; }
+dl.words div { min-width: 0; }
+dl.words dt { font-weight: 700; }
+dl.words dd { margin: 0; color: var(--muted); font-size: 0.98rem; }
+
+/* énoncé */
+.enonce { border: 1.5px dashed var(--line); padding: 0.9rem 1.1rem; color: var(--muted); font-style: italic; font-size: 0.98rem; }
+.enonce .kicker { font-style: normal; display: block; margin-bottom: 0.3rem; }
+
+/* question */
+.q { display: flex; flex-direction: column; gap: 0.8rem; padding-top: 1.3rem; border-top: 1.5px solid var(--line); }
+.q h3 { display: block; }
+.q h3 .n { color: var(--accent); font-weight: 800; margin-right: 0.35rem; font-variant-numeric: tabular-nums; }
+.rep { background: var(--answer-bg); color: var(--answer-ink); padding: 0.85rem 1.1rem; border-radius: 10px; }
+.rep .kicker { color: var(--answer-ink); display: block; margin-bottom: 0.2rem; }
+.q ul, .q ol { margin: 0; padding-left: 1.3rem; display: flex; flex-direction: column; gap: 0.35rem; }
+.eq {
+  font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 5vw, 1.75rem);
+  text-align: center; padding: 0.3rem 0; font-variant-numeric: tabular-nums; overflow-wrap: anywhere;
+}
+.calc strong { white-space: nowrap; }
+.calc { font-weight: 700; font-variant-numeric: tabular-nums; text-align: center; font-size: 1.12rem; }
+.note { color: var(--muted); font-size: 0.95rem; }
+
+/* dessins */
+figure { margin: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+figure svg { width: 100%; max-width: 32rem; height: auto; display: block; margin-inline: auto; border-radius: 8px; }
+figcaption { color: var(--muted); font-size: 0.93rem; text-align: center; max-width: 34rem; margin-inline: auto; }
+.f-air { fill: var(--air); } .f-alu { fill: var(--alu); } .f-alumine { fill: var(--alumine); }
+.f-fer { fill: var(--fer); } .f-rust { fill: var(--rust); } .f-o2 { fill: var(--o2); } .f-water { fill: var(--water); }
+.t { font-family: var(--font-body); font-size: 14px; fill: var(--ink); }
+.t-metal { fill: var(--on-metal); font-weight: 700; } .t-fer { fill: var(--on-fer); font-weight: 700; } .t-rust { fill: var(--on-rust); font-weight: 700; }
+.arrow { fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+.arrowhead { fill: var(--ink); }
+
+/* atomes */
+.atoms { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.6rem 0.7rem; }
+.grp { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem; }
+.mol { display: inline-flex; gap: 2px; padding: 3px 5px; border: 1.5px dashed var(--muted); border-radius: 999px; }
+.at {
+  width: 26px; height: 26px; border-radius: 50%; display: inline-grid; place-items: center;
+  font-size: 0.68rem; font-weight: 700; color: var(--on-atom); line-height: 1;
+}
+.at.al { background: var(--alu); color: var(--on-metal); } .at.fe { background: var(--fer); color: var(--on-fer); } .at.o { background: var(--o2); }
+.op { font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; }
+
+/* tableaux */
+.tablewrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+th, td { border: 1.5px solid var(--line); padding: 0.5rem 0.7rem; text-align: center; }
+th { font-weight: 700; background: var(--surface); }
+td:first-child, th:first-child { text-align: left; }
+
+/* barres */
+.bars { display: flex; flex-direction: column; gap: 0.9rem; }
+.barrow { display: flex; flex-direction: column; gap: 0.25rem; }
+.barrow .lab { font-size: 0.95rem; font-weight: 700; }
+.bar { display: flex; height: 2.3rem; border-radius: 6px; overflow: hidden; }
+.bar span { display: grid; place-items: center; font-weight: 700; font-size: 0.9rem; white-space: nowrap; min-width: 0; }
+.seg-alu { background: var(--alu); color: var(--on-metal); }
+.seg-si { background: var(--alumine); color: var(--bg); }
+.seg-fer { background: var(--fer); color: var(--on-fer); }
+.seg-o { background: var(--o2); color: var(--on-atom); }
+.legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-size: 0.93rem; color: var(--muted); }
+.legend i { display: inline-block; width: 0.8rem; height: 0.8rem; border-radius: 3px; margin-right: 0.35rem; vertical-align: -1px; }
+
+/* air : 5 parts */
+.air5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; max-width: 30rem; margin-inline: auto; width: 100%; }
+.air5 div { aspect-ratio: 1 / 1; border-radius: 8px; display: grid; place-items: center; text-align: center; font-weight: 700; font-size: 0.82rem; line-height: 1.25; padding: 2px; }
+.air5 .ox { background: var(--o2); color: var(--on-atom); }
+.air5 .az { background: var(--azote); color: var(--ink); }
+
+.recap { background: var(--surface); border: 1.5px solid var(--line); border-radius: 12px; padding: 1.2rem; }
+</style>
+
+</head>
+<body>
+<div class="page">
+
+<header>
+  <span class="kicker">Physique-chimie · Série n° 3 · Corrigé expliqué</span>
+  <h1>Oxydation des métaux</h1>
+  <p class="lead">Les 4 exercices sont corrigés pas à pas. Pour chaque question tu trouves la <strong>réponse à écrire sur ta copie</strong> (fond vert), puis l'explication pour bien comprendre.</p>
+  <nav aria-label="Aller à un exercice">
+    <a href="#mots">Les mots à connaître</a>
+    <a href="#ex1">Exercice 1</a>
+    <a href="#ex2">Exercice 2</a>
+    <a href="#ex3">Exercice 3</a>
+    <a href="#ex4">Exercice 4</a>
+    <a href="#retenir">À retenir</a>
+  </nav>
+</header>
+
+<section id="mots">
+  <h2>Les mots à connaître</h2>
+  <dl class="words">
+    <div><dt>Réaction chimique</dt><dd>Une transformation où des corps disparaissent et où de nouveaux corps apparaissent.</dd></div>
+    <div><dt>Réactifs</dt><dd>Les corps présents au départ. Ils sont consommés pendant la réaction.</dd></div>
+    <div><dt>Produits</dt><dd>Les nouveaux corps qui se forment à la fin.</dd></div>
+    <div><dt>Oxydation</dt><dd>Réaction d'un corps (ici un métal) avec le dioxygène O<sub>2</sub> de l'air. Le produit s'appelle un oxyde.</dd></div>
+    <div><dt>Corrosion</dt><dd>La destruction lente d'un métal par l'air, l'eau ou d'autres substances.</dd></div>
+    <div><dt>Équation bilan</dt><dd>L'écriture de la réaction avec les formules : réactifs → produits. Il faut le même nombre d'atomes des deux côtés de la flèche.</dd></div>
+  </dl>
+</section>
+
+<!-- ============ EXERCICE 1 ============ -->
+<section id="ex1">
+  <h2>Exercice 1 : l'aluminium</h2>
+  <p class="enonce"><span class="kicker">Énoncé</span>Un objet en aluminium abandonné à l'air libre subit une oxydation. Il se forme une couche grisâtre, de formule Al<sub>2</sub>O<sub>3</sub>, à la surface de l'objet.</p>
+
+  <article class="q">
+    <h3><span class="n">1.</span> Quels sont les réactifs de cette réaction chimique ?</h3>
+    <div class="rep"><span class="kicker">Réponse</span>Les réactifs sont <strong>l'aluminium (Al)</strong> et <strong>le dioxygène de l'air (O<sub>2</sub>)</strong>.</div>
+    <p>Comment le trouver ? Regarde la formule du produit : Al<sub>2</sub>O<sub>3</sub>. Elle contient deux sortes d'atomes, de l'aluminium (Al) et de l'oxygène (O). L'aluminium vient de l'objet. L'oxygène vient du dioxygène de l'air, puisque l'objet est laissé à l'air libre.</p>
+  </article>
+
+  <article class="q">
+    <h3><span class="n">2.</span> Écrire l'équation bilan de la réaction qui produit Al<sub>2</sub>O<sub>3</sub>.</h3>
+    <div class="rep"><span class="kicker">Réponse</span>
+      <p class="eq">4 Al + 3 O<sub>2</sub> → 2 Al<sub>2</sub>O<sub>3</sub></p>
+    </div>
+    <p><strong>La règle :</strong> pendant une réaction, aucun atome n'est créé et aucun atome ne disparaît. Il faut donc compter le même nombre d'atomes à gauche et à droite de la flèche. On a seulement le droit d'ajouter des nombres <em>devant</em> les formules.</p>
+    <ol>
+      <li>On écrit d'abord sans nombres : Al + O<sub>2</sub> → Al<sub>2</sub>O<sub>3</sub>. À gauche il y a 2 atomes O, à droite il y en a 3. Ce n'est pas égal.</li>
+      <li>On cherche un nombre qui est dans la table de 2 et dans la table de 3 : c'est <strong>6</strong>. On met donc <strong>3</strong> devant O<sub>2</sub> (3 × 2 = 6) et <strong>2</strong> devant Al<sub>2</sub>O<sub>3</sub> (2 × 3 = 6).</li>
+      <li>Maintenant, à droite il y a 2 × 2 = 4 atomes Al. On met donc <strong>4</strong> devant Al à gauche.</li>
+    </ol>
+    <figure>
+      <div class="atoms" role="img" aria-label="4 atomes d'aluminium plus 3 molécules de dioxygène donnent 2 groupes Al2O3">
+        <div class="grp"><span class="at al">Al</span><span class="at al">Al</span><span class="at al">Al</span><span class="at al">Al</span></div>
+        <span class="op">+</span>
+        <div class="grp">
+          <span class="mol"><span class="at o">O</span><span class="at o">O</span></span>
+          <span class="mol"><span class="at o">O</span><span class="at o">O</span></span>
+          <span class="mol"><span class="at o">O</span><span class="at o">O</span></span>
+        </div>
+        <span class="op">→</span>
+        <div class="grp">
+          <span class="mol"><span class="at al">Al</span><span class="at al">Al</span><span class="at o">O</span><span class="at o">O</span><span class="at o">O</span></span>
+          <span class="mol"><span class="at al">Al</span><span class="at al">Al</span><span class="at o">O</span><span class="at o">O</span><span class="at o">O</span></span>
+        </div>
+      </div>
+      <figcaption>Compte les boules : 4 Al et 6 O avant la flèche, 4 Al et 6 O après. L'équation est équilibrée.</figcaption>
+    </figure>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Atomes</th><th>Avant (réactifs)</th><th>Après (produits)</th></tr></thead>
+        <tbody>
+          <tr><td>Aluminium Al</td><td>4</td><td>2 × 2 = 4</td></tr>
+          <tr><td>Oxygène O</td><td>3 × 2 = 6</td><td>2 × 3 = 6</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+  <article class="q">
+    <h3><span class="n">3.</span> L'oxydation va-t-elle continuer jusqu'à la destruction totale de l'objet ? Justifier.</h3>
+    <div class="rep"><span class="kicker">Réponse</span><strong>Non.</strong> La couche d'oxyde d'aluminium (l'alumine, Al<sub>2</sub>O<sub>3</sub>) est fine, collée au métal et <strong>imperméable</strong> : elle ne laisse passer ni l'air ni l'eau. Elle protège l'aluminium qui est en dessous, donc l'oxydation s'arrête.</div>
+    <figure>
+      <svg viewBox="0 0 440 240" role="img" aria-labelledby="svg-alu-t">
+        <title id="svg-alu-t">Coupe d'un objet en aluminium : la couche d'alumine arrête le dioxygène</title>
+        <defs><marker id="ah1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" class="arrowhead"/></marker></defs>
+        <rect x="0" y="0" width="440" height="140" class="f-air"/>
+        <rect x="0" y="140" width="440" height="12" class="f-alumine"/>
+        <rect x="0" y="152" width="440" height="88" class="f-alu"/>
+        <g class="f-o2">
+          <circle cx="62" cy="58" r="10"/><circle cx="78" cy="58" r="10"/>
+          <circle cx="207" cy="50" r="10"/><circle cx="223" cy="50" r="10"/>
+          <circle cx="342" cy="58" r="10"/><circle cx="358" cy="58" r="10"/>
+        </g>
+        <path d="M82 74 L116 134 L148 90" class="arrow" marker-end="url(#ah1)"/>
+        <path d="M228 66 L260 134 L292 90" class="arrow" marker-end="url(#ah1)"/>
+        <path d="M362 74 L384 134 L412 94" class="arrow" marker-end="url(#ah1)"/>
+        <text x="12" y="24" class="t">Air : le dioxygène O<tspan dy="3" font-size="10">2</tspan><tspan dy="-3"> arrive…</tspan></text>
+        <text x="12" y="178" class="t t-metal">↑ couche d'alumine Al<tspan dy="3" font-size="10">2</tspan><tspan dy="-3">O</tspan><tspan dy="3" font-size="10">3</tspan><tspan dy="-3"> : fine et imperméable</tspan></text>
+        <text x="12" y="218" class="t t-metal">Aluminium : il reste intact</text>
+      </svg>
+      <figcaption>Le dioxygène rebondit sur la couche d'alumine. Il ne peut plus toucher le métal. C'est comme un imperméable qui protège de la pluie.</figcaption>
+    </figure>
+  </article>
+</section>
+
+<!-- ============ EXERCICE 2 ============ -->
+<section id="ex2">
+  <h2>Exercice 2 : le fer et la rouille</h2>
+  <p class="enonce"><span class="kicker">Énoncé</span>Le fer est très utilisé (portes, fenêtres) parce qu'il est rigide. Mais dans l'air humide il subit la corrosion : il se forme de la rouille, constituée surtout du corps de formule Fe<sub>2</sub>O<sub>3</sub>.</p>
+
+  <article class="q">
+    <h3><span class="n">1.</span> Donner le nom du corps de formule Fe<sub>2</sub>O<sub>3</sub>.</h3>
+    <div class="rep"><span class="kicker">Réponse</span>Fe<sub>2</sub>O<sub>3</sub> s'appelle <strong>l'oxyde de fer III</strong> (on dit aussi « oxyde ferrique »). C'est le constituant principal de la rouille.</div>
+    <p>Le mot « oxyde » veut dire que le corps contient de l'oxygène. « De fer » parce qu'il contient du fer. La formule se lit ainsi : 2 atomes de fer (Fe) liés à 3 atomes d'oxygène (O).</p>
+  </article>
+
+  <article class="q">
+    <h3><span class="n">2.</span> Écrire l'équation bilan de cette réaction.</h3>
+    <div class="rep"><span class="kicker">Réponse</span>
+      <p class="eq">4 Fe + 3 O<sub>2</sub> → 2 Fe<sub>2</sub>O<sub>3</sub></p>
+    </div>
+    <p>C'est exactement la même méthode que pour l'aluminium. On part de Fe + O<sub>2</sub> → Fe<sub>2</sub>O<sub>3</sub>. On équilibre d'abord l'oxygène (3 × 2 = 6 et 2 × 3 = 6), puis le fer (2 × 2 = 4, donc 4 devant Fe).</p>
+    <figure>
+      <div class="atoms" role="img" aria-label="4 atomes de fer plus 3 molécules de dioxygène donnent 2 groupes Fe2O3">
+        <div class="grp"><span class="at fe">Fe</span><span class="at fe">Fe</span><span class="at fe">Fe</span><span class="at fe">Fe</span></div>
+        <span class="op">+</span>
+        <div class="grp">
+          <span class="mol"><span class="at o">O</span><span class="at o">O</span></span>
+          <span class="mol"><span class="at o">O</span><span class="at o">O</span></span>
+          <span class="mol"><span class="at o">O</span><span class="at o">O</span></span>
+        </div>
+        <span class="op">→</span>
+        <div class="grp">
+          <span class="mol"><span class="at fe">Fe</span><span class="at fe">Fe</span><span class="at o">O</span><span class="at o">O</span><span class="at o">O</span></span>
+          <span class="mol"><span class="at fe">Fe</span><span class="at fe">Fe</span><span class="at o">O</span><span class="at o">O</span><span class="at o">O</span></span>
+        </div>
+      </div>
+      <figcaption>4 Fe et 6 O avant la flèche, 4 Fe et 6 O après : c'est équilibré.</figcaption>
+    </figure>
+    <p class="note">Remarque : l'eau est nécessaire pour que la rouille se forme (il faut de l'air <em>humide</em>), mais dans l'équation simplifiée du cours on écrit seulement le fer et le dioxygène.</p>
+  </article>
+
+  <article class="q">
+    <h3><span class="n">3.</span> Pourquoi faut-il protéger le fer dans les régions humides ?</h3>
+    <div class="rep"><span class="kicker">Réponse</span>La rouille se forme quand le fer est en contact avec le dioxygène <strong>et</strong> l'eau. Dans une région humide il y a beaucoup d'eau dans l'air, donc le fer rouille vite. De plus, la rouille est <strong>poreuse</strong> (pleine de petits trous) : elle laisse passer l'air et l'eau, la corrosion continue en profondeur et peut <strong>détruire tout le fer</strong>. Il faut donc le protéger.</div>
+    <figure>
+      <svg viewBox="0 0 440 240" role="img" aria-labelledby="svg-fer-t">
+        <title id="svg-fer-t">Coupe d'un objet en fer : la rouille poreuse laisse passer l'air et l'eau</title>
+        <defs><marker id="ah2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" class="arrowhead"/></marker></defs>
+        <rect x="0" y="0" width="440" height="150" class="f-air"/>
+        <rect x="0" y="150" width="440" height="90" class="f-fer"/>
+        <g class="f-rust">
+          <rect x="0" y="104" width="66" height="46" rx="5"/>
+          <rect x="84" y="96" width="62" height="54" rx="5"/>
+          <rect x="164" y="108" width="48" height="42" rx="5"/>
+          <rect x="230" y="98" width="72" height="52" rx="5"/>
+          <rect x="320" y="106" width="40" height="44" rx="5"/>
+          <rect x="378" y="100" width="62" height="50" rx="5"/>
+          <path d="M58 148 Q75 196 92 148 Z"/>
+          <path d="M142 148 Q155 178 168 148 Z"/>
+          <path d="M206 148 Q221 200 236 148 Z"/>
+          <path d="M298 148 Q311 176 324 148 Z"/>
+          <path d="M354 148 Q369 194 384 148 Z"/>
+        </g>
+        <g class="f-o2">
+          <circle cx="67" cy="54" r="10"/><circle cx="83" cy="54" r="10"/>
+          <circle cx="361" cy="54" r="10"/><circle cx="377" cy="54" r="10"/>
+        </g>
+        <path d="M221 38 C229 48 232 53 232 58 A11 11 0 1 1 210 58 C210 53 213 48 221 38 Z" class="f-water"/>
+        <path d="M75 70 L75 160" class="arrow" marker-end="url(#ah2)"/>
+        <path d="M221 74 L221 162" class="arrow" marker-end="url(#ah2)"/>
+        <path d="M369 70 L369 160" class="arrow" marker-end="url(#ah2)"/>
+        <text x="12" y="24" class="t">Air humide : dioxygène O<tspan dy="3" font-size="10">2</tspan><tspan dy="-3"> et eau</tspan></text>
+        <text x="266" y="130" text-anchor="middle" class="t t-rust">rouille</text>
+        <text x="12" y="224" class="t t-fer">Fer : attaqué de plus en plus profond</text>
+      </svg>
+      <figcaption>La rouille est comme une éponge : l'air et l'eau passent par les trous et continuent à attaquer le fer en dessous. C'est le contraire de l'alumine.</figcaption>
+    </figure>
+  </article>
+
+  <article class="q">
+    <h3><span class="n">4.</span> Citer deux techniques de protection du fer contre la corrosion.</h3>
+    <div class="rep"><span class="kicker">Réponse</span>
+      <ul>
+        <li><strong>Recouvrir le fer de peinture</strong> (ou de vernis, ou de graisse).</li>
+        <li><strong>Recouvrir le fer d'une couche d'un autre métal</strong> qui ne rouille pas, par exemple le zinc : c'est la galvanisation.</li>
+      </ul>
+    </div>
+    <p>L'idée est toujours la même : on met une barrière entre le fer et l'air humide. Sans contact avec le dioxygène et l'eau, pas de rouille. Autres réponses possibles : le chromage (couche de chrome), le nickelage (couche de nickel), ou fabriquer un alliage qui ne rouille pas comme l'acier inoxydable (« inox »).</p>
+  </article>
+</section>
+
+<!-- ============ EXERCICE 3 ============ -->
+<section id="ex3">
+  <h2>Exercice 3 : bord de mer, aluminium et alliage</h2>
+
+  <article class="q">
+    <h3><span class="n">1.</span> Pourquoi le fer est-il attaqué plus vite dans les villes côtières que dans les villes loin de la mer ?</h3>
+    <div class="rep"><span class="kicker">Réponse</span>Près de la mer, l'air est <strong>très humide</strong> et il contient du <strong>sel</strong> (chlorure de sodium) apporté par l'eau de mer. L'eau salée <strong>accélère</strong> la formation de la rouille. Le fer est donc attaqué plus vite que dans une ville loin de la mer, où l'air est plus sec et sans sel.</div>
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Dans l'air il y a…</th><th>Ville au bord de la mer</th><th>Ville loin de la mer</th></tr></thead>
+        <tbody>
+          <tr><td>Dioxygène</td><td>oui</td><td>oui</td></tr>
+          <tr><td>Eau (humidité)</td><td>beaucoup</td><td>peu</td></tr>
+          <tr><td>Sel</td><td>oui</td><td>non</td></tr>
+          <tr><td><strong>Vitesse de la rouille</strong></td><td><strong>rapide</strong></td><td><strong>lente</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Tu peux le voir toi-même : les voitures, les grilles et les bateaux rouillent beaucoup plus vite au bord de la mer.</p>
+  </article>
+
+  <article class="q">
+    <h3><span class="n">2.</span> Pourquoi l'aluminium est-il utilisé sans peinture ?</h3>
+    <div class="rep"><span class="kicker">Réponse</span>Parce que l'aluminium <strong>se protège tout seul</strong>. Au contact de l'air, il se couvre d'une fine couche d'alumine (Al<sub>2</sub>O<sub>3</sub>) imperméable, qui empêche l'air d'atteindre le métal. Il n'a donc pas besoin de peinture.</div>
+    <p>C'est la même idée que la question 3 de l'exercice 1. La couche d'alumine joue le rôle de la peinture, et elle se reforme toute seule si on raye l'objet.</p>
+  </article>
+
+  <article class="q">
+    <h3><span class="n">3.1</span> Qu'est-ce qu'un alliage ?</h3>
+    <div class="rep"><span class="kicker">Réponse</span>Un alliage est un <strong>mélange homogène d'un métal avec un ou plusieurs autres éléments</strong> (métalliques ou non). On l'obtient en faisant fondre les constituants ensemble.</div>
+    <p>On fabrique des alliages pour avoir un matériau meilleur que le métal seul : plus dur, plus léger ou plus résistant à la corrosion. Exemples : l'acier (fer + carbone), le bronze (cuivre + étain), et ici l'Alpax (aluminium + silicium).</p>
+  </article>
+
+  <article class="q">
+    <h3><span class="n">3.2</span> La carrosserie en Alpax pèse une tonne. Calculer la masse d'aluminium en kg.</h3>
+    <div class="rep"><span class="kicker">Réponse</span>
+      <p class="calc">m(aluminium) = 1000 × 87 ÷ 100 = <strong>870 kg</strong></p>
+    </div>
+    <ol>
+      <li><strong>On convertit :</strong> 1 tonne = 1000 kg.</li>
+      <li><strong>On comprend le pourcentage :</strong> « 87 % d'aluminium » veut dire que dans 100 kg d'Alpax, il y a 87 kg d'aluminium.</li>
+      <li><strong>On calcule :</strong> 1000 kg, c'est 10 fois 100 kg. Donc il y a 10 × 87 = 870 kg d'aluminium.</li>
+    </ol>
+    <figure>
+      <div class="bars">
+        <div class="barrow">
+          <span class="lab">Carrosserie en Alpax : 1000 kg</span>
+          <div class="bar" role="img" aria-label="870 kg d'aluminium et 130 kg de silicium">
+            <span class="seg-alu" style="width:87%">870 kg</span><span class="seg-si" style="width:13%">130</span>
+          </div>
+        </div>
+        <div class="legend"><span><i style="background:var(--alu)"></i>Aluminium : 87 %</span><span><i style="background:var(--alumine)"></i>Silicium : 13 %</span></div>
+      </div>
+      <figcaption>Vérification : le silicium pèse 1000 × 13 ÷ 100 = 130 kg, et 870 + 130 = 1000 kg. Le compte est bon.</figcaption>
+    </figure>
+  </article>
+</section>
+
+<!-- ============ EXERCICE 4 ============ -->
+<section id="ex4">
+  <h2>Exercice 4 : la paille de fer qui rouille</h2>
+  <p class="enonce"><span class="kicker">Énoncé</span>On laisse 58 g de paille de fer à l'air libre. Après quelques semaines, il se forme de la rouille et la masse de la paille de fer devient 69 g. On donne : 32 g de dioxygène occupent un volume de 24 L.</p>
+
+  <article class="q">
+    <h3><span class="n">1.</span> Quelles sont les propriétés de la rouille ?</h3>
+    <div class="rep"><span class="kicker">Réponse</span>
+      <ul>
+        <li>Elle a une couleur <strong>brun-rouge</strong>.</li>
+        <li>Elle est <strong>poreuse</strong> : elle laisse passer l'air et l'eau (elle est perméable).</li>
+        <li>Elle est <strong>friable</strong> : elle s'effrite et se détache du métal.</li>
+        <li>Elle <strong>ne protège pas</strong> le fer : la corrosion continue jusqu'à la destruction du métal.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="q">
+    <h3><span class="n">2.</span> Indiquer le nom des réactifs et des produits de cette réaction.</h3>
+    <div class="rep"><span class="kicker">Réponse</span>
+      <ul>
+        <li><strong>Réactifs :</strong> le fer (Fe) et le dioxygène de l'air (O<sub>2</sub>), en présence d'eau.</li>
+        <li><strong>Produit :</strong> l'oxyde de fer III (Fe<sub>2</sub>O<sub>3</sub>), c'est-à-dire la rouille.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="q">
+    <h3><span class="n">3.</span> Nommer cette réaction chimique.</h3>
+    <div class="rep"><span class="kicker">Réponse</span>C'est <strong>l'oxydation du fer</strong>. Comme elle se fait lentement, à froid, on l'appelle une oxydation lente (ou corrosion du fer).</div>
+  </article>
+
+  <article class="q">
+    <h3><span class="n">4.</span> Écrire l'équation chimique équilibrée de cette réaction.</h3>
+    <div class="rep"><span class="kicker">Réponse</span>
+      <p class="eq">4 Fe + 3 O<sub>2</sub> → 2 Fe<sub>2</sub>O<sub>3</sub></p>
+    </div>
+    <p>C'est la même équation que dans l'exercice 2. Vérification : 4 atomes Fe de chaque côté, et 6 atomes O de chaque côté (3 × 2 = 6 et 2 × 3 = 6).</p>
+  </article>
+
+  <article class="q">
+    <h3><span class="n">5.</span> Calculer la masse du corps qui a réagi avec le fer.</h3>
+    <div class="rep"><span class="kicker">Réponse</span>
+      <p>Le corps qui a réagi avec le fer est le dioxygène.</p>
+      <p class="calc">m(dioxygène) = 69 − 58 = <strong>11 g</strong></p>
+    </div>
+    <p><strong>Pourquoi une soustraction ?</strong> Pendant une réaction chimique, la masse se conserve : la masse des réactifs consommés est égale à la masse des produits formés. La paille de fer est devenue plus lourde parce que des atomes d'oxygène venus de l'air se sont accrochés au fer. Les grammes gagnés sont donc les grammes de dioxygène.</p>
+    <figure>
+      <div class="bars">
+        <div class="barrow">
+          <span class="lab">Au début : 58 g</span>
+          <div class="bar" role="img" aria-label="58 grammes de fer"><span class="seg-fer" style="width:84.06%">58 g de fer</span></div>
+        </div>
+        <div class="barrow">
+          <span class="lab">Après quelques semaines : 69 g</span>
+          <div class="bar" role="img" aria-label="58 grammes de départ plus 11 grammes de dioxygène"><span class="seg-fer" style="width:84.06%">58 g de départ</span><span class="seg-o" style="width:15.94%">+ 11 g</span></div>
+        </div>
+        <div class="legend"><span><i style="background:var(--fer)"></i>Masse de fer du départ</span><span><i style="background:var(--o2)"></i>Dioxygène pris dans l'air</span></div>
+      </div>
+      <figcaption>Les deux barres sont à la même échelle. La différence entre les deux, 11 g, c'est le dioxygène qui s'est fixé sur le fer.</figcaption>
+    </figure>
+  </article>
+
+  <article class="q">
+    <h3><span class="n">6.</span> Calculer le volume d'air nécessaire pour former cette quantité de rouille.</h3>
+    <div class="rep"><span class="kicker">Réponse</span>
+      <p class="calc">V(dioxygène) = 11 × 24 ÷ 32 = <strong>8,25 L</strong></p>
+      <p class="calc">V(air) = 5 × 8,25 = <strong>41,25 L</strong></p>
+    </div>
+
+    <p><strong>Étape 1 : le volume de dioxygène.</strong> La masse et le volume d'un gaz sont proportionnels. On fait un tableau de proportionnalité, puis un produit en croix.</p>
+    <div class="tablewrap">
+      <table>
+        <tbody>
+          <tr><th>Masse de dioxygène (g)</th><td>32</td><td>11</td></tr>
+          <tr><th>Volume de dioxygène (L)</th><td>24</td><td>V = ?</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="calc">V = (11 × 24) ÷ 32 = 264 ÷ 32 = 8,25 L</p>
+    <p class="note">Est-ce logique ? 11 g, c'est environ un tiers de 32 g. Et 8,25 L, c'est environ un tiers de 24 L. Oui, le résultat est cohérent.</p>
+
+    <p><strong>Étape 2 : le volume d'air.</strong> L'air n'est pas du dioxygène pur. Le dioxygène représente seulement 1/5 de l'air (environ 20 %). Les 4/5 restants sont surtout du diazote, qui ne réagit pas avec le fer. Il faut donc 5 fois plus d'air que de dioxygène.</p>
+    <figure>
+      <div class="air5" role="img" aria-label="L'air découpé en 5 parts égales de 8,25 litres : 1 part de dioxygène et 4 parts de diazote">
+        <div class="ox"><span>O<sub>2</sub><br>8,25 L</span></div>
+        <div class="az"><span>N<sub>2</sub><br>8,25 L</span></div>
+        <div class="az"><span>N<sub>2</sub><br>8,25 L</span></div>
+        <div class="az"><span>N<sub>2</sub><br>8,25 L</span></div>
+        <div class="az"><span>N<sub>2</sub><br>8,25 L</span></div>
+      </div>
+      <figcaption>5 parts égales de 8,25 L : une seule part est du dioxygène. Volume d'air = 5 × 8,25 = 41,25 L.</figcaption>
+    </figure>
+    <p class="note">Si ton professeur utilise 21 % au lieu de 20 %, le calcul devient 8,25 × 100 ÷ 21 ≈ 39,3 L. Prends la valeur donnée dans ton cours.</p>
+  </article>
+
+  <article class="q">
+    <h3><span class="n">+</span> Pour aller plus loin (niveau lycée)</h3>
+    <p><strong>Avec les moles.</strong> La donnée « 32 g de dioxygène occupent 24 L » correspond à 1 mole de dioxygène : sa masse molaire est M = 32 g/mol et le volume molaire est V<sub>m</sub> = 24 L/mol.</p>
+    <p class="calc">n(O<sub>2</sub>) = m ÷ M = 11 ÷ 32 ≈ 0,34 mol &nbsp;puis&nbsp; V = n × V<sub>m</sub> = 0,34375 × 24 = 8,25 L</p>
+    <p><strong>Tout le fer a-t-il rouillé ?</strong> D'après l'équation, 4 moles de fer (4 × 56 = 224 g) réagissent avec 3 moles de dioxygène (3 × 32 = 96 g). Avec 11 g de dioxygène, la masse de fer qui a réagi est 11 × 224 ÷ 96 ≈ 25,7 g. Il reste donc environ 58 − 25,7 = 32,3 g de fer pas encore rouillé, et il s'est formé 25,7 + 11 = 36,7 g de rouille. Vérification : 32,3 + 36,7 = 69 g.</p>
+  </article>
+</section>
+
+<!-- ============ À RETENIR ============ -->
+<section id="retenir">
+  <h2>À retenir</h2>
+  <div class="recap stack">
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th></th><th>Fer</th><th>Aluminium</th></tr></thead>
+        <tbody>
+          <tr><td>Oxyde formé</td><td>Fe<sub>2</sub>O<sub>3</sub>, oxyde de fer III (rouille)</td><td>Al<sub>2</sub>O<sub>3</sub>, oxyde d'aluminium (alumine)</td></tr>
+          <tr><td>Équation bilan</td><td>4 Fe + 3 O<sub>2</sub> → 2 Fe<sub>2</sub>O<sub>3</sub></td><td>4 Al + 3 O<sub>2</sub> → 2 Al<sub>2</sub>O<sub>3</sub></td></tr>
+          <tr><td>La couche d'oxyde</td><td>poreuse, laisse passer l'air et l'eau</td><td>fine et imperméable</td></tr>
+          <tr><td>Conséquence</td><td>le fer est détruit peu à peu</td><td>l'aluminium est protégé</td></tr>
+          <tr><td>Faut-il le protéger ?</td><td>oui : peinture, zinc…</td><td>non</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul>
+      <li>Dans une équation bilan, il y a le même nombre d'atomes de chaque sorte avant et après la flèche.</li>
+      <li>La masse se conserve : masse gagnée par le métal = masse de dioxygène consommé.</li>
+      <li>Le dioxygène représente 1/5 de l'air : volume d'air = 5 × volume de dioxygène.</li>
+    </ul>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
